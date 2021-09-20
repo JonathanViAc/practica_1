@@ -1,0 +1,28 @@
+from funciones import *
+salir=0
+comunidad=""
+direccion=""
+puerto=161
+version=0
+lista=[0]
+while (salir != 4):
+    print ("Opciones:\n1)Agregar agente\n2)Eliminar agente\n3)Estado de los agentes\n4)Salir\n5)Crear archivos rrd y xml\n7)Generar reporte")
+    salir = int(input("\nIngrese la opcion deseada: "))
+    if (salir==1):
+        comunidad=input("Ingresa el nombre de la comunidad: ")
+        direccion=input("Ingresa la direccion del agente: ")
+        version=int(input("Ingresa la version de SNMP del agente: "))
+        puerto=int(input("Ingresa el puerto del agente: "))
+        agregarElemento(lista,comunidad,direccion,version,puerto)
+        imprimirLista(lista)
+    if(salir==2):
+        direccion=input("Ingresa la direccion del agente a eliminar: ")
+        eliminarAgente(lista,direccion)
+        imprimirLista(lista)
+    if(salir==3):
+        estadoAgente(lista)
+    if(salir==5) :
+        creacion(lista)
+        creacionGraph(lista)
+    if (salir == 7):
+        reporte(lista)
